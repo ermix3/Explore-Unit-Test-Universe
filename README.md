@@ -25,8 +25,6 @@ to enhance the testing experience.
 
 ## Technologies
 
----
-
 - Spring Boot ![Spring Boot](https://img.shields.io/badge/-Spring%20Boot-6DB33F?style=flat&logo=spring&logoColor=white)
 - JUnit ![JUnit](https://img.shields.io/badge/-JUnit-25A162?style=flat&logo=junit5&logoColor=white)
 - Testcontainers ![Testcontainers](https://img.shields.io/badge/-Testcontainers-FFA500?style=flat&logo=docker&logoColor=white)
@@ -37,7 +35,6 @@ to enhance the testing experience.
 
 ## Installation
 
----
 1. Clone the repository:
    ```bash
    git clone https://github.com/ermix3/explore-unit-test-universe.git
@@ -58,21 +55,17 @@ to enhance the testing experience.
 
 ## Usage
 
----
 The application provides a RESTful API for managing users. You can use the Swagger UI to interact with the API
 and perform CRUD operations on users.
 
 ## Running Tests
 
----
 To run the unit tests, execute the following command:
 ```bash
 mvn test
 ```
 
 ## Contributing
-
----
 
 [//]: # (Contributions are welcome! Please refer to the [contributing guidelines]&#40;CONTRIBUTING.md&#41; for detailed information.)
 > Coming soon!
