@@ -1,11 +1,13 @@
 package io.ermix.demo;
 
+import io.ermix.demo.config.TestcontainersConfiguration;
 import org.springframework.boot.SpringApplication;
 
 public class TestDemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.from(DemoApplication::main).with(TestcontainersConfiguration.class).run(args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.from(DemoApplication::main)
+        .with(TestcontainersConfiguration.class)
+        .run(args);
+  }
 }

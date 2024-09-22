@@ -1,5 +1,6 @@
 package io.ermix.demo;
 
+import io.ermix.demo.config.TestcontainersConfiguration;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
@@ -8,8 +9,6 @@ import org.springframework.context.annotation.Import;
 @SpringBootTest
 class DemoApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
-
+  @Test
+  void contextLoads() {}
 }
