@@ -13,20 +13,18 @@ import lombok.RequiredArgsConstructor;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String username;
-    private String email;
-    private String password;
-    private String phone;
+  @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+  private String username;
+  private String email;
+  private String password;
+  private String phone;
 
-    public static User from(UserRequest userRequest) {
-        return User.builder()
-                .username(userRequest.username())
-                .email(userRequest.email())
-                .password(userRequest.password())
-                .phone(userRequest.phone())
-                .build();
-    }
+  public static User from(UserRequest userRequest) {
+    return User.builder()
+        .username(userRequest.username())
+        .email(userRequest.email())
+        .password(userRequest.password())
+        .phone(userRequest.phone())
+        .build();
+  }
 }
