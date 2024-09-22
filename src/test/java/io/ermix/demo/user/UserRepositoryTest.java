@@ -1,6 +1,6 @@
 package io.ermix.demo.user;
 
-import io.ermix.demo.TestcontainersConfiguration;
+import io.ermix.demo.config.TestcontainersConfiguration;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

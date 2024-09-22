@@ -7,7 +7,8 @@ import lombok.Builder;
 public record UserResponse(
         Long id,
         String username,
-        String email
+        String email,
+        String phone
 ) {
 
     public static UserResponse from(User user) {
@@ -15,6 +16,7 @@ public record UserResponse(
                 .id(user.getId())
                 .username(user.getUsername())
                 .email(user.getEmail())
+                .phone(user.getPhone())
                 .build();
     }
 }

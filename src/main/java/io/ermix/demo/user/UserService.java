@@ -27,16 +27,39 @@ public class UserService {
                 .toList();
     }
 
-    public UserResponse create(User user) {
-        return UserResponse.from(userRepository.save(user));
+    public UserResponse create(UserRequest userRequest) {
+        return UserResponse.from(userRepository.save(User.from(userRequest)));
     }
 
-    public UserResponse update(Long id, User user) {
+    public void update(Long id, UserRequest userRequest) {
         User updatedUser = userRepository.findById(id)
                 .map(existingUser -> {
-                    existingUser.setUsername(user.getUsername());
-                    existingUser.setEmail(user.getEmail());
-                    existingUser.setPassword(user.getPassword());
+                    existingUser.setUsername(userRequest.username());
+                    existingUser.setEmail(userRequest.email());
+                    existingUser.setPhone(userRequest.phone());
+                    existingUser.setPassword(userRequest.password());
+                    return userRepository.save(existingUser);
+                })
+                .orElseThrow(() -> new NotFoundException("User not found"));
+
+        UserResponse.from(updatedUser);
+    }
+
+    public UserResponse patch(Long id, UserRequest userRequest) {
+        User updatedUser = userRepository.findById(id)
+                .map(existingUser -> {
+                    if (userRequest.username() != null) {
+                        existingUser.setUsername(userRequest.username());
+                    }
+                    if (userRequest.email() != null) {
+                        existingUser.setEmail(userRequest.email());
+                    }
+                    if (userRequest.phone() != null) {
+                        existingUser.setPhone(userRequest.phone());
+                    }
+                    if (userRequest.password() != null) {
+                        existingUser.setPassword(userRequest.password());
+                    }
                     return userRepository.save(existingUser);
                 })
                 .orElseThrow(() -> new NotFoundException("User not found"));

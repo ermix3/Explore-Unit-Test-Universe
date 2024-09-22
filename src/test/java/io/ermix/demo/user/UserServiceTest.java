@@ -1,6 +1,6 @@
 package io.ermix.demo.user;
 
-import io.ermix.demo.TestcontainersConfiguration;
+import io.ermix.demo.config.TestcontainersConfiguration;
 import net.datafaker.Faker;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -30,27 +30,24 @@ class UserServiceTest {
         userRepository.deleteAll();
     }
 
-     private User buildUser() {
-        return User.builder()
+     private UserRequest buildUserRequest() {
+        return UserRequest.builder()
                 .username(faker.name().firstName())
                 .email(faker.internet().emailAddress())
                 .password(faker.internet().password())
+                .phone(faker.phoneNumber().cellPhone())
                 .build();
     }
 
     @Test
     @DisplayName("Creating a new user")
     void create() {
-        User user = User.builder()
-                .username("user")
-                .email("user@mail.fr")
-                .password("password")
-                .build();
+        UserRequest userRequest = buildUserRequest();
 
-        UserResponse createdUser = userService.create(user);
+        UserResponse createdUser = userService.create(userRequest);
 
         assertNotNull(createdUser);
-        assertEquals(user.getUsername(), createdUser.username());
+        assertEquals(userRequest.username(), createdUser.username());
     }
 
 
