@@ -67,5 +67,4 @@ mvn test
 
 ## Contributing
 
-[//]: # (Contributions are welcome! Please refer to the [contributing guidelines]&#40;CONTRIBUTING.md&#41; for detailed information.)
-> Coming soon!
+Contributions are welcome! Please refer to the [contributing guidelines](CONTRIBUTING.md) for detailed information.
